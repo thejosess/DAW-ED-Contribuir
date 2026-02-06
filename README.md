@@ -4,7 +4,7 @@ Un proyecto educativo en Java para aprender a hacer contribuciones open source m
 
 ## Objetivo del Proyecto
 
-Este proyecto está diseñado específicamente para que estudiantes y principiantes practiquen:
+ste proyecto está diseñado específicamente para que estudiantes y principiantes practiquen:
 - Hacer fork de repositorios
 - Crear ramas (branches)
 - Hacer commits
