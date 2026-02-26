@@ -9,15 +9,21 @@ public class Prestamo {
     private Libro libro;
     private String usuario;
     private LocalDate fechaPrestamo;
+    private LocalDate fechaLimite;
     private LocalDate fechaDevolucion;
     private boolean activo;
-    
+
     public Prestamo(Libro libro, String usuario) {
         this.libro = libro;
         this.usuario = usuario;
         this.fechaPrestamo = LocalDate.now();
+        this.fechaLimite = this.fechaPrestamo.plusDays(15); //Plazo
         this.fechaDevolucion = null;
         this.activo = true;
+    }
+
+    public LocalDate getFechaLimite() {
+        return fechaLimite;
     }
     
     public Libro getLibro() {
