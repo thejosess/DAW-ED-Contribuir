@@ -3,6 +3,8 @@ package com.biblioteca.servicio;
 import com.biblioteca.modelo.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 /**
  * Servicio que gestiona las operaciones de la biblioteca
@@ -75,7 +77,7 @@ public class BibliotecaServicio {
         System.out.println("No se encontró un préstamo activo para ese libro.");
         return false;
     }
-    
+
     public void listarPrestamosActivos() {
         boolean hayPrestamos = false;
         for (Prestamo prestamo : prestamos) {
@@ -84,9 +86,24 @@ public class BibliotecaServicio {
                 hayPrestamos = true;
             }
         }
-        
+
         if (!hayPrestamos) {
             System.out.println("No hay préstamos activos.");
+        }
+    }
+
+    public void listarPrestamosVencidos() {
+        LocalDate hoy = LocalDate.now();
+        boolean hayVencidos = false;
+        for (Prestamo prestamo : prestamos) {
+            if (prestamo.isActivo() && prestamo.getFechaLimite() != null && prestamo.getFechaLimite().isBefore(hoy)) {
+                long diasRetraso = ChronoUnit.DAYS.between(prestamo.getFechaLimite(), hoy);
+                System.out.println("Usuario: " + prestamo.getUsuario() + " | Libro: " + prestamo.getLibro().getTitulo() + " | Días de retraso: " + diasRetraso);
+                hayVencidos = true;
+            }
+        }
+        if (!hayVencidos) {
+            System.out.println("No hay préstamos vencidos.");
         }
     }
     

@@ -44,6 +44,9 @@ public class BibliotecaApp {
                 case 6:
                     listarPrestamos();
                     break;
+                case 7:
+                    listarPrestamosVencidos();
+                    break;
                 case 0:
                     continuar = false;
                     System.out.println("¡Hasta pronto!");
@@ -65,6 +68,7 @@ public class BibliotecaApp {
         System.out.println("5. Devolver libro");
         System.out.println("6. Listar préstamos activos");
         System.out.println("0. Salir");
+        System.out.println("7. Listar préstamos vencidos");
         System.out.print("Seleccione una opción: ");
     }
     
@@ -161,5 +165,10 @@ public class BibliotecaApp {
     private static void listarPrestamos() {
         System.out.println("\n=== PRÉSTAMOS ACTIVOS ===");
         bibliotecaServicio.listarPrestamosActivos();
+    }
+
+    private static void listarPrestamosVencidos() {
+        System.out.println("\n=== PRÉSTAMOS VENCIDOS ===");
+        bibliotecaServicio.listarPrestamosVencidos();
     }
 }
