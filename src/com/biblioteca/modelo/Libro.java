@@ -13,6 +13,7 @@ public class Libro {
     private String editorial;
     private int añoPublicacion;
     private boolean disponible;
+    private String genero;
     
     
 
@@ -21,12 +22,14 @@ public class Libro {
     private ArrayList<String> comentarios = new ArrayList<>();
     private ArrayList<Calificacion> calificaciones = new ArrayList<>();
 
+    public Libro(String titulo, String autor, String isbn, int añoPublicacion, String genero) {
     public Libro(String titulo, String autor, String isbn, String editorial, int añoPublicacion) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
         this.editorial = editorial;
         this.añoPublicacion = añoPublicacion;
+        this.genero = genero;
         this.disponible = true;
     }
 
@@ -107,6 +110,14 @@ public class Libro {
     
     public int getAñoPublicacion() {
         return añoPublicacion;
+    }
+
+    public String getGenero() { 
+        return genero; 
+    }
+
+    public void setGenero(String genero) { 
+        this.genero = genero; 
     }
 
     public void setAñoPublicacion(int añoPublicacion) {
