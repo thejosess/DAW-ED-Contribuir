@@ -153,7 +153,19 @@ public class BibliotecaApp {
         System.out.print("\nIngrese ISBN del libro: ");
         String isbn = scanner.nextLine();
         System.out.print("Nombre del usuario: ");
-        String usuario = scanner.nextLine();
+        String usuario = "";
+        boolean validarUsuario = true ;
+        do{
+            usuario = scanner.nextLine();
+            usuario = usuario.trim(); // Esto elimina los espacios del inicio y final para que el nombre del usuario no pueda empezar por espacio en blanco
+            if(usuario.length() < 3 || usuario.isEmpty()){
+                System.out.println("Nombre de usuario incorrecto");
+                validarUsuario = false;
+            }
+            else{
+                validarUsuario = true;
+            }
+        }while(validarUsuario == false);
 
         boolean exito = bibliotecaServicio.prestarLibro(isbn, usuario);
         if (exito) {
@@ -239,7 +251,20 @@ public class BibliotecaApp {
         }
 
         System.out.print("Usuario: ");
-        String usuario = scanner.nextLine();
+        String usuario = "";
+        boolean validarUsuario = true ;
+        do{
+            usuario = scanner.nextLine();
+            usuario = usuario.trim(); // Esto elimina los espacios del inicio y final para que el nombre del usuario no pueda empezar por espacio en blanco
+            if(usuario.length() < 3 || usuario.isEmpty()){
+               System.out.println("Nombre de usuario incorrecto");
+               validarUsuario = false;
+            }
+            else{
+                validarUsuario = true;
+            }
+        }while(validarUsuario = false);
+        
 
         System.out.print("Puntuación (1 a 10): ");
         int puntuacion = Integer.parseInt(scanner.nextLine());
