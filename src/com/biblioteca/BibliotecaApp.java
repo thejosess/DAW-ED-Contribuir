@@ -100,6 +100,33 @@ public class BibliotecaApp {
     }
 
     private static void agregarLibro() {
+    System.out.println("\n=== AGREGAR NUEVO LIBRO ===");
+    System.out.print("Título: ");
+    String titulo = scanner.nextLine();
+    System.out.print("Autor: ");
+    String autor = scanner.nextLine();
+    System.out.print("ISBN: ");
+    String isbn = scanner.nextLine();
+    System.out.print("Año de publicación: ");
+    
+    int año;
+    try {
+        año = Integer.parseInt(scanner.nextLine());
+    } catch (NumberFormatException e) {
+        System.out.println("Error: El año debe ser un número válido. Operación cancelada.");
+        return; 
+    }
+    
+    Libro libro = new Libro(titulo, autor, isbn, año);
+    bibliotecaServicio.agregarLibro(libro);
+    System.out.println("Libro agregado exitosamente!");
+}
+    
+    Libro libro = new Libro(titulo, autor, isbn, año);
+    bibliotecaServicio.agregarLibro(libro);
+    System.out.println("Libro agregado exitosamente!");
+}
+    
         System.out.println("\n=== AGREGAR NUEVO LIBRO ===");
         System.out.print("Título: ");
         String isbn = Libro.validarIsbn(scanner);
